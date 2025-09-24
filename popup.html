@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 380px;
+      padding: 15px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 0;
+    }
+    
+    .container {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    h2 {
+      margin: 0 0 20px 0;
+      color: #333;
+      font-size: 18px;
+      text-align: center;
+    }
+    
+    .input-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #666;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+      background: white;
+      cursor: pointer;
+    }
+    
+    input[type="text"]:focus,
+    select:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    #enableBtn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    #enableBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    
+    #disableBtn {
+      background: #f44336;
+      color: white;
+    }
+    
+    #disableBtn:hover {
+      background: #d32f2f;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+    }
+    
+    .status {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 13px;
+      background: #f5f5f5;
+      color: #666;
+      min-height: 20px;
+    }
+    
+    .status.active {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    
+    .status.inactive {
+      background: #ffebee;
+      color: #c62828;
+    }
+    
+    .toggle-switch {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 6px;
+    }
+    
+    .toggle-switch input[type="checkbox"] {
+      width: 40px;
+      height: 20px;
+      position: relative;
+      appearance: none;
+      background: #ccc;
+      border-radius: 20px;
+      outline: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .toggle-switch input[type="checkbox"]:checked {
+      background: #667eea;
+    }
+    
+    .toggle-switch input[type="checkbox"]:before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: white;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+    }
+    
+    .toggle-switch input[type="checkbox"]:checked:before {
+      transform: translateX(20px);
+    }
+    
+    .toggle-switch label {
+      margin: 0 0 0 10px;
+      flex: 1;
+    }
+    
+    /* Brand Section Styles */
+    .brand-section {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px solid #e0e0e0;
+    }
+    
+    .brand-section h3 {
+      margin: 0 0 15px 0;
+      color: #333;
+      font-size: 16px;
+      text-align: center;
+    }
+    
+    .brand-type-selector {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .brand-type-selector label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      color: #666;
+      cursor: pointer;
+    }
+    
+    .brand-scope {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 6px;
+    }
+    
+    .brand-scope label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: #666;
+      cursor: pointer;
+    }
+    
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 12px;
+      box-sizing: border-box;
+      background: white;
+      cursor: pointer;
+    }
+    
+    input[type="file"]:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+    
+    #logoPreview {
+      margin-top: 10px;
+      text-align: center;
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f9f9f9;
+      border-radius: 6px;
+      padding: 10px;
+    }
+    
+    #logoPreview img {
+      max-width: 100%;
+      max-height: 40px;
+      object-fit: contain;
+    }
+    
+    #logoPreview.empty {
+      color: #999;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🏷️ Tab Lower Third Label</h2>
+    
+    <div class="toggle-switch">
+      <input type="checkbox" id="toggleLabel">
+      <label for="toggleLabel">Show Label</label>
+    </div>
+    
+    <div class="input-group">
+      <label for="labelText">Label Text:</label>
+      <input type="text" id="labelText" placeholder="Enter label name..." maxlength="50">
+    </div>
+    
+    <div class="input-group">
+      <label for="styleSelect">Label Style:</label>
+      <select id="styleSelect">
+        <option value="default">Default Gradient</option>
+        <option value="classic">Classic Black</option>
+        <option value="news">News Red</option>
+        <option value="corporate">Corporate Blue</option>
+        <option value="neon">Neon Green</option>
+        <option value="sports">Sports Orange</option>
+        <option value="elegant">Elegant Gold</option>
+        <option value="gaming">Gaming Purple</option>
+        <option value="minimal">Minimal White</option>
+        <option value="retro">Retro 80s</option>
+        <option value="glassy">Glassy Transparent</option>
+        <option value="dark">Dark Mode</option>
+        <option value="neon-pink">Neon Pink</option>
+        <option value="fire">Fire Orange</option>
+        <option value="ocean">Ocean Blue</option>
+        <option value="matrix">Matrix Green</option>
+        <option value="sunset">Sunset Orange</option>
+      </select>
+    </div>
+    
+    <div class="button-group">
+      <button id="enableBtn">Apply Label</button>
+      <button id="disableBtn">Remove Label</button>
+    </div>
+    
+    <div id="status" class="status"></div>
+    
+    <!-- Brand Settings Section -->
+    <div class="brand-section">
+      <h3>🏷️ Brand Element (Top Right)</h3>
+      
+      <div class="toggle-switch">
+        <input type="checkbox" id="toggleBrand">
+        <label for="toggleBrand">Show Brand</label>
+      </div>
+      
+      <div class="brand-type-selector">
+        <label>
+          <input type="radio" name="brandType" value="text" checked>
+          Text Brand
+        </label>
+        <label>
+          <input type="radio" name="brandType" value="logo">
+          Logo Image
+        </label>
+      </div>
+      
+      <div id="brandTextGroup" class="input-group">
+        <label for="brandText">Brand Text:</label>
+        <input type="text" id="brandText" placeholder="e.g., CNN, FOX, My Brand..." maxlength="20">
+      </div>
+      
+      <div id="brandLogoGroup" class="input-group" style="display: none;">
+        <label for="brandLogo">Brand Logo:</label>
+        <input type="file" id="brandLogo" accept="image/*">
+        <div id="logoPreview"></div>
+      </div>
+      
+      <div class="input-group">
+        <label for="brandStyle">Brand Background:</label>
+        <select id="brandStyle">
+          <option value="default">Default White</option>
+          <option value="gradient1">Purple Gradient</option>
+          <option value="gradient2">Pink Gradient</option>
+          <option value="gradient3">Blue Gradient</option>
+          <option value="gradient4">Green Gradient</option>
+          <option value="gradient5">Sunset Gradient</option>
+          <option value="solid-blue">Solid Blue</option>
+          <option value="solid-red">Solid Red</option>
+          <option value="solid-green">Solid Green</option>
+          <option value="solid-purple">Solid Purple</option>
+          <option value="solid-orange">Solid Orange</option>
+          <option value="dark">Dark</option>
+          <option value="transparent">Transparent</option>
+        </select>
+      </div>
+      
+      <div class="brand-scope">
+        <label>
+          <input type="radio" name="brandScope" value="all" checked>
+          Show on all tabs
+        </label>
+        <label>
+          <input type="radio" name="brandScope" value="current">
+          Show on current tab only
+        </label>
+      </div>
+      
+      <div class="button-group">
+        <button id="applyBrandBtn">Apply Brand</button>
+        <button id="removeBrandBtn">Remove Brand</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

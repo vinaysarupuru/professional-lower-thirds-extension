@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f0f0f0;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        p {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .test-button {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .test-button:hover {
+            background: #5a67d8;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Chrome Extension Test Page</h1>
+        <p>
+            This is a test page for the Tab Lower Third Labels Chrome extension. 
+            Use the extension popup to add a label to this page.
+        </p>
+        <p>
+            The label should appear in the bottom-left corner of the page, 
+            not in the extension popup itself.
+        </p>
+        
+        <button class="test-button" onclick="testConsole()">Test Console Logging</button>
+        <button class="test-button" onclick="testDOM()">Test DOM Structure</button>
+        
+        <div id="debug-info" style="margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 5px; font-family: monospace;"></div>
+    </div>
+
+    <script>
+        function testConsole() {
+            console.log('Test page loaded and ready');
+            console.log('Document body:', document.body);
+            console.log('Extension label element:', document.getElementById('tab-lower-third-label'));
+        }
+
+        function testDOM() {
+            const debugDiv = document.getElementById('debug-info');
+            const labelElement = document.getElementById('tab-lower-third-label');
+            
+            debugDiv.innerHTML = `
+                <h3>DOM Debug Info:</h3>
+                <p><strong>Page URL:</strong> ${window.location.href}</p>
+                <p><strong>Document ready state:</strong> ${document.readyState}</p>
+                <p><strong>Body element exists:</strong> ${document.body ? 'Yes' : 'No'}</p>
+                <p><strong>Label element exists:</strong> ${labelElement ? 'Yes' : 'No'}</p>
+                <p><strong>Label element visible:</strong> ${labelElement && labelElement.classList.contains('show') ? 'Yes' : 'No'}</p>
+                <p><strong>Page dimensions:</strong> ${window.innerWidth}x${window.innerHeight}</p>
+                <p><strong>Time:</strong> ${new Date().toLocaleTimeString()}</p>
+            `;
+        }
+
+        // Auto-refresh debug info
+        setInterval(testDOM, 1000);
+
+        // Listen for messages from the extension
+        window.addEventListener('message', function(event) {
+            console.log('Page received message:', event.data);
+        });
+
+        console.log('Test page loaded successfully');
+    </script>
+</body>
+</html>

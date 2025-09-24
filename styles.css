@@ -1,0 +1,562 @@
+#tab-lower-third-label.lower-third-label {
+  position: fixed !important;
+  bottom: 80px !important; /* Moved up from 40px */
+  left: 40px !important;
+  z-index: 2147483647 !important; /* Maximum z-index */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transform: translateY(20px) !important;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+#tab-lower-third-label.lower-third-label.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+#tab-lower-third-label .label-content {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%) !important;
+  color: white !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 1px 8px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+#tab-lower-third-label .label-content::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+  animation: shimmer 3s infinite !important;
+}
+
+#tab-lower-third-label .label-text {
+  font-size: 20px !important; /* Increased from 16px */
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  position: relative !important;
+  z-index: 1 !important;
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: white !important;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100% !important;
+  }
+  100% {
+    left: 200% !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  #tab-lower-third-label .label-content {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 1px 8px rgba(0, 0, 0, 0.3) !important;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  #tab-lower-third-label.lower-third-label {
+    bottom: 30px !important; /* Adjusted for mobile */
+    left: 20px !important;
+    right: 20px !important;
+  }
+  
+  #tab-lower-third-label .label-content {
+    padding: 10px 18px !important;
+  }
+  
+  #tab-lower-third-label .label-text {
+    font-size: 18px !important; /* Adjusted for mobile */
+  }
+  
+  #tab-lower-third-label .brand-logo {
+    min-width: 32px !important;
+    height: 32px !important;
+    font-size: 14px !important;
+  }
+  
+  #tab-lower-third-label .brand-container {
+    gap: 8px !important;
+  }
+}
+
+/* Style Themes */
+
+/* Default/Gradient Theme (already defined above) */
+
+/* Classic Theme */
+#tab-lower-third-label.theme-classic .label-content {
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: none !important;
+}
+
+#tab-lower-third-label.theme-classic .label-content::before {
+  display: none !important;
+}
+
+/* News Theme */
+#tab-lower-third-label.theme-news .label-content {
+  background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%) !important;
+  border: none !important;
+  border-left: 4px solid #ffffff !important;
+  border-radius: 0 4px 4px 0 !important;
+  box-shadow: 0 6px 20px rgba(196, 30, 58, 0.4) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+/* Corporate Theme */
+#tab-lower-third-label.theme-corporate .label-content {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+  border: 1px solid #bdc3c7 !important;
+  border-radius: 2px !important;
+  box-shadow: 0 8px 25px rgba(52, 73, 94, 0.3) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* Neon Theme */
+#tab-lower-third-label.theme-neon .label-content {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border: 2px solid #00ff88 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+#tab-lower-third-label.theme-neon .label-text {
+  color: #00ff88 !important;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.8) !important;
+}
+
+/* Sports Theme */
+#tab-lower-third-label.theme-sports .label-content {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%) !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4) !important;
+  backdrop-filter: blur(5px) !important;
+}
+
+#tab-lower-third-label.theme-sports .label-text {
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+/* Elegant Theme */
+#tab-lower-third-label.theme-elegant .label-content {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.95) 0%, rgba(160, 82, 45, 0.95) 100%) !important;
+  border: 1px solid rgba(218, 165, 32, 0.6) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+#tab-lower-third-label.theme-elegant .label-text {
+  font-family: 'Georgia', 'Times New Roman', serif !important;
+  font-style: italic !important;
+  color: #daa520 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Gaming Theme */
+#tab-lower-third-label.theme-gaming .label-content {
+  background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%) !important;
+  border: 2px solid #00d4ff !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.4), 0 8px 25px rgba(74, 0, 224, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+  position: relative !important;
+}
+
+#tab-lower-third-label.theme-gaming .label-content::before {
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent) !important;
+}
+
+#tab-lower-third-label.theme-gaming .label-text {
+  font-family: 'Consolas', 'Monaco', monospace !important;
+  font-weight: 700 !important;
+  color: #00d4ff !important;
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.6) !important;
+}
+
+/* Minimal Theme */
+#tab-lower-third-label.theme-minimal .label-content {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: none !important;
+  border-radius: 20px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+#tab-lower-third-label.theme-minimal .label-text {
+  color: #333 !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+}
+
+/* Retro Theme */
+#tab-lower-third-label.theme-retro .label-content {
+  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%) !important;
+  border: 3px solid #ffffff !important;
+  border-radius: 0 !important;
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: none !important;
+}
+
+#tab-lower-third-label.theme-retro .label-text {
+  font-family: 'Courier New', monospace !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Glassy Theme */
+#tab-lower-third-label.theme-glassy .label-content {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 15px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+#tab-lower-third-label.theme-glassy .label-text {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Dark Mode Theme */
+#tab-lower-third-label.theme-dark .label-content {
+  background: linear-gradient(135deg, #1a1a1a 0%, #333 100%) !important;
+  border: 1px solid #555 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+#tab-lower-third-label.theme-dark .label-text {
+  color: #f0f0f0 !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Neon Pink Theme */
+#tab-lower-third-label.theme-neon-pink .label-content {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border: 2px solid #ff1493 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.5), inset 0 0 20px rgba(255, 20, 147, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+#tab-lower-third-label.theme-neon-pink .label-text {
+  color: #ff1493 !important;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.8) !important;
+  font-weight: 600 !important;
+}
+
+/* Fire Theme */
+#tab-lower-third-label.theme-fire .label-content {
+  background: linear-gradient(135deg, #ff4500 0%, #ff6347 50%, #ffd700 100%) !important;
+  border: 2px solid #ff0000 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 25px rgba(255, 69, 0, 0.6) !important;
+  backdrop-filter: blur(5px) !important;
+  animation: fireGlow 2s infinite alternate !important;
+}
+
+#tab-lower-third-label.theme-fire .label-text {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8) !important;
+}
+
+@keyframes fireGlow {
+  0% { box-shadow: 0 0 25px rgba(255, 69, 0, 0.6) !important; }
+  100% { box-shadow: 0 0 35px rgba(255, 69, 0, 0.9) !important; }
+}
+
+/* Ocean Theme */
+#tab-lower-third-label.theme-ocean .label-content {
+  background: linear-gradient(135deg, #006994 0%, #0081a7 50%, #00afb9 100%) !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 25px rgba(0, 105, 148, 0.4) !important;
+  backdrop-filter: blur(10px) !important;
+  position: relative !important;
+}
+
+#tab-lower-third-label.theme-ocean .label-content::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent) !important;
+  animation: wave 4s infinite !important;
+}
+
+#tab-lower-third-label.theme-ocean .label-text {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(0, 105, 148, 0.8) !important;
+}
+
+@keyframes wave {
+  0% { left: -100% !important; }
+  100% { left: 200% !important; }
+}
+
+/* Matrix Theme */
+#tab-lower-third-label.theme-matrix .label-content {
+  background: rgba(0, 0, 0, 0.95) !important;
+  border: 1px solid #00ff41 !important;
+  border-radius: 0 !important;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3) !important;
+  backdrop-filter: blur(5px) !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+#tab-lower-third-label.theme-matrix .label-text {
+  color: #00ff41 !important;
+  font-family: 'Courier New', monospace !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.8) !important;
+  animation: matrixGlow 1.5s infinite alternate !important;
+}
+
+@keyframes matrixGlow {
+  0% { text-shadow: 0 0 5px rgba(0, 255, 65, 0.8) !important; }
+  100% { text-shadow: 0 0 15px rgba(0, 255, 65, 1) !important; }
+}
+
+/* Sunset Theme */
+#tab-lower-third-label.theme-sunset .label-content {
+  background: linear-gradient(135deg, #ff7b7b 0%, #ff9068 50%, #ffa726 100%) !important;
+  border: none !important;
+  border-radius: 25px !important;
+  box-shadow: 0 10px 30px rgba(255, 123, 123, 0.4) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+#tab-lower-third-label.theme-sunset .label-text {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(255, 123, 123, 0.6) !important;
+}
+
+/* Brand Element (separate from lower third) */
+#tab-brand-element {
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
+  z-index: 2147483647 !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transform: translateY(-20px) !important;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+#tab-brand-element.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+#tab-brand-element .brand-content {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(20px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 32px !important;
+  max-width: 200px !important;
+  overflow: hidden !important;
+}
+
+#tab-brand-element .brand-text {
+  color: #333 !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  max-width: 100% !important;
+}
+
+#tab-brand-element .brand-logo-img {
+  max-width: 150px !important;
+  max-height: 32px !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* Brand Background Styles */
+#tab-brand-element.brand-style-gradient1 .brand-content {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-gradient1 .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-gradient2 .brand-content {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-gradient2 .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-gradient3 .brand-content {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-gradient3 .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-gradient4 .brand-content {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%) !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-gradient4 .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-gradient5 .brand-content {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%) !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-gradient5 .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-solid-blue .brand-content {
+  background: #2196f3 !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-solid-blue .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-solid-red .brand-content {
+  background: #f44336 !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-solid-red .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-solid-green .brand-content {
+  background: #4caf50 !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-solid-green .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-solid-purple .brand-content {
+  background: #9c27b0 !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-solid-purple .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-solid-orange .brand-content {
+  background: #ff9800 !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-solid-orange .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-dark .brand-content {
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+#tab-brand-element.brand-style-dark .brand-text {
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-transparent .brand-content {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+#tab-brand-element.brand-style-transparent .brand-text {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Mobile responsive for brand */
+@media (max-width: 768px) {
+  #tab-brand-element {
+    top: 5px !important;
+    right: 5px !important;
+  }
+  
+  #tab-brand-element .brand-content {
+    padding: 6px 12px !important;
+    max-width: 150px !important;
+  }
+  
+  #tab-brand-element .brand-text {
+    font-size: 12px !important;
+  }
+  
+  #tab-brand-element .brand-logo-img {
+    max-width: 120px !important;
+    max-height: 24px !important;
+  }
+}
